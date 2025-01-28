@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .auth-page__main {
+    padding: 16px;
+  }
+
+  .auth-page__main h2 {
+    font-size: 20px;
+  }
+}

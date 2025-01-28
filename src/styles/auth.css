@@ -1,0 +1,102 @@
+/* General styling for both pages */
+.auth-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  background-image: url("/sky.jpg");
+  background-size: cover;
+  color: var(--text-color);
+}
+
+.auth-page__hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-page__hero h1 {
+  font-size: 48px;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.auth-page__main {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 24px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.auth-page__main h2 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+.auth-page__main p {
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.auth-page__main a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-page__main a:hover {
+  text-decoration: underline;
+}
+
+/* Form styling */
+.auth-input {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-input input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.auth-input input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.auth-input button {
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+.auth-input button:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.auth-input button:active {
+  background-color: #3b3eac;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-page__hero svg {
+  font-size: 64px;
+  color: var(--primary-color);
+}
