@@ -46,7 +46,7 @@ const NetworkSource = {
       email,
       password,
     });
-    return data.user;
+    return data.data.user;
   },
 
   async login({ email, password }) {
@@ -54,27 +54,27 @@ const NetworkSource = {
       email,
       password,
     });
-    return data.token;
+    return data.data.token;
   },
 
   async getOwnProfile() {
     const { data } = await axiosInstance.get("/users/me");
-    return data.user;
+    return data.data.user;
   },
 
   async getAllUsers() {
     const { data } = await axiosInstance.get("/users");
-    return data.users;
+    return data.data.users;
   },
 
   async getAllThreads() {
     const { data } = await axiosInstance.get("/threads");
-    return data.threads;
+    return data.data.threads;
   },
 
   async getDetailThread(id) {
     const { data } = await axiosInstance.get(`/threads/${id}`);
-    return data.detailThread;
+    return data.data.detailThread;
   },
 
   async createThread({ title, body, category = "" }) {
@@ -83,7 +83,7 @@ const NetworkSource = {
       body,
       category,
     });
-    return data.thread;
+    return data.data.thread;
   },
 };
 

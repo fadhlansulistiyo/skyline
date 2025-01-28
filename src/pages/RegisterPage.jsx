@@ -1,5 +1,5 @@
 import React from "react";
-import { IoEarthOutline } from "react-icons/io5";
+import { FaCloud } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import RegisterInput from "../components/auth/RegisterInput";
@@ -9,8 +9,8 @@ function RegisterPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onRegister = ({ name, id, password }) => {
-    dispatch(asyncRegisterUser({ id, name, password }));
+  const onRegister = ({ name, email, password }) => {
+    dispatch(asyncRegisterUser({ name, email, password }));
 
     navigate("/");
   };
@@ -19,7 +19,7 @@ function RegisterPage() {
     <section className="auth-page">
       <header className="auth-page__hero">
         <h1>
-          <IoEarthOutline />
+          <FaCloud />
         </h1>
       </header>
       <article className="auth-page__main">

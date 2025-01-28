@@ -19,7 +19,7 @@ const RegisterInput = ({ register }) => {
         type="text"
         value={email}
         onChange={onEmailChange}
-        placeholder="Username"
+        placeholder="Email"
       />
       <input
         type="password"
