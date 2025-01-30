@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
-import { asyncReceiveDetailThread } from "../states/detailThread/action";
+import {
+  asyncReceiveDetailThread,
+  asyncAddComment,
+} from "../states/detailThread/action";
 import { postedAt } from "../utils";
 import { MessageCircle, ThumbsUp, ThumbsDown } from "lucide-react";
+import CommentInput from "../components/detail/CommentInput";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -30,6 +34,10 @@ const DetailPage = () => {
     comments,
   } = detailThread;
 
+  const handleAddComment = (comment) => {
+    dispatch(asyncAddComment(id, comment));
+  };
+
   return (
     <div className="detail-page">
       <h1 className="detail-title">{title}</h1>
@@ -54,6 +62,9 @@ const DetailPage = () => {
         <ThumbsDown className="vote-icon" size={20} />
         <span>{downVotesBy.length}</span>
       </div>
+
+      {/* Comment Input Section */}
+      <CommentInput onAddComment={handleAddComment} />
 
       <h2 className="comments-title">
         <MessageCircle size={22} /> {comments.length} Comments

@@ -69,7 +69,6 @@ const NetworkSource = {
 
   async getAllThreads() {
     const { data } = await axiosInstance.get("/threads");
-    console.log(data.data.threads);
     return data.data.threads;
   },
 
@@ -85,6 +84,13 @@ const NetworkSource = {
       category,
     });
     return data.data.thread;
+  },
+
+  async createComment({ threadId, content = "" }) {
+    const { data } = await axiosInstance.post(`/threads/${threadId}/comments`, {
+      content,
+    });
+    return data.data.comment;
   },
 };
 
