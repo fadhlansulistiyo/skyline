@@ -1,0 +1,34 @@
+{
+  "status": "success",
+  "message": "ok",
+  "data": {
+    "detailThread": {
+      "id": "thread-1",
+      "title": "Thread Pertama",
+      "body": "Ini adalah thread pertama",
+      "category": "General",
+      "createdAt": "2021-06-21T07:00:00.000Z",
+      "owner": {
+        "id": "users-1",
+        "name": "John Doe",
+        "avatar": "https://generated-image-url.jpg"
+      },
+      "upVotesBy": [],
+      "downVotesBy": [],
+      "comments": [
+        {
+          "id": "comment-1",
+          "content": "Ini adalah komentar pertama",
+          "createdAt": "2021-06-21T07:00:00.000Z",
+          "owner": {
+            "id": "users-1",
+            "name": "John Doe",
+            "avatar": "https://generated-image-url.jpg"
+          },
+          "upVotesBy": [],
+          "downVotesBy": []
+        }
+      ]
+    }
+  }
+}

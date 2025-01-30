@@ -161,6 +161,7 @@
 .thread-item {
   background: white;
   padding: 15px;
+  cursor: pointer;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   transition: transform 0.2s, box-shadow 0.3s;
@@ -176,7 +177,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+}
+
+.thread-item__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.thread-item__date {
+  font-size: 0.9rem;
+  color: gray;
+  margin-bottom: 12px;
 }
 
 .thread-item__avatar {
@@ -189,6 +200,7 @@
 .thread-item__name {
   font-size: 16px;
   font-weight: bold;
+  margin-top: 8px;
   color: var(--text-color);
 }
 
@@ -214,4 +226,21 @@
 .thread-item__body {
   font-size: 16px;
   color: #555;
+}
+
+.thread-item__footer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.thread-item__icon {
+  color: gray;
+}
+
+.thread-item__comments {
+  font-weight: bold;
 }
