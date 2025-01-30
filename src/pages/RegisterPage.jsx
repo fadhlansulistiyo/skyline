@@ -1,9 +1,8 @@
-import React from "react";
-import { FaCloud } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import RegisterInput from "../components/auth/RegisterInput";
-import { asyncRegisterUser } from "../states/users/action";
+import { FaCloud } from 'react-icons/fa6';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import RegisterInput from '../components/auth/RegisterInput';
+import { asyncRegisterUser } from '../states/users/action';
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -12,7 +11,7 @@ function RegisterPage() {
   const onRegister = ({ name, email, password }) => {
     dispatch(asyncRegisterUser({ name, email, password }));
 
-    navigate("/");
+    navigate('/');
   };
 
   return (

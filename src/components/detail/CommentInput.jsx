@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const CommentInput = ({ onAddComment }) => {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment.trim()) {
       onAddComment(comment);
-      setComment("");
+      setComment('');
     }
   };
 

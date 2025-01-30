@@ -1,8 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
-import { postedAt } from "../../utils";
-import { MessageCircle } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { postedAt } from '../../utils';
+import { MessageCircle } from 'lucide-react';
 
 const ThreadItem = ({
   id,
@@ -20,7 +19,7 @@ const ThreadItem = ({
   };
 
   const onThreadPress = (event) => {
-    if (event.key === "Enter" || event.key === " ") {
+    if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
       navigate(`/threads/${id}`);
     }
@@ -36,7 +35,7 @@ const ThreadItem = ({
     >
       <div className="thread-item__header">
         <img
-          src={user.avatar || "default-avatar.png"}
+          src={user.avatar || 'default-avatar.png'}
           alt={user.name}
           className="thread-item__avatar"
         />

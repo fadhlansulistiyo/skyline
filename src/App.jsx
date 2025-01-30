@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import Loading from "./components/Loading";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
-import Navigation from "./components/Navigation";
-import RegisterPage from "./pages/RegisterPage";
-import DetailPage from "./pages/DetailPage";
-import { asyncPreloadProcess } from "./states/isPreload/action";
-import { asyncUnsetAuthUser } from "./states/authUser/action";
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import Loading from './components/Loading';
+import LoginPage from './pages/LoginPage';
+import HomePage from './pages/HomePage';
+import Navigation from './components/Navigation';
+import RegisterPage from './pages/RegisterPage';
+import DetailPage from './pages/DetailPage';
+import { asyncPreloadProcess } from './states/isPreload/action';
+import { asyncUnsetAuthUser } from './states/authUser/action';
 
 function App() {
   const authUser = useSelector((state) => state.authUser || null);

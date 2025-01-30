@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const ThreadInput = ({ addThread }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
-  const [category, setCategory] = useState("");
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [category, setCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim() || !body.trim()) return;
     addThread({ title, body, category });
-    setTitle("");
-    setBody("");
-    setCategory("");
+    setTitle('');
+    setBody('');
+    setCategory('');
   };
 
   return (

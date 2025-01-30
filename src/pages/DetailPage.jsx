@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import PropTypes from "prop-types";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   asyncReceiveDetailThread,
   asyncAddComment,
-} from "../states/detailThread/action";
-import { postedAt } from "../utils";
-import { MessageCircle, ThumbsUp, ThumbsDown } from "lucide-react";
-import CommentInput from "../components/detail/CommentInput";
+} from '../states/detailThread/action';
+import { postedAt } from '../utils';
+import { MessageCircle, ThumbsUp, ThumbsDown } from 'lucide-react';
+import CommentInput from '../components/detail/CommentInput';
 
 const DetailPage = () => {
   const { id } = useParams();

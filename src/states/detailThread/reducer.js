@@ -1,15 +1,15 @@
-import { ActionType } from "./action";
+import { ActionType } from './action';
 
 function detailThreadReducer(detailThread = null, action = {}) {
   switch (action.type) {
-    case ActionType.RECEIVE_DETAIL_THREAD:
-      return action.payload.detailThread;
+  case ActionType.RECEIVE_DETAIL_THREAD:
+    return action.payload.detailThread;
 
-    case ActionType.CLEAR_DETAIL_THREAD:
-      return null;
+  case ActionType.CLEAR_DETAIL_THREAD:
+    return null;
 
-    default:
-      return detailThread;
+  default:
+    return detailThread;
   }
 }
 

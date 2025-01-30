@@ -1,7 +1,7 @@
-import NetworkSource from "../../utils/network-source";
+import NetworkSource from '../../utils/network-source';
 
 const ActionType = {
-  RECEIVE_USERS: "RECEIVE_USERS",
+  RECEIVE_USERS: 'RECEIVE_USERS',
 };
 
 function receiveUsersActionCreator(users) {

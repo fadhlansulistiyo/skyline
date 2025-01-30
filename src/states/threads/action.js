@@ -1,9 +1,9 @@
-import { hideLoading, showLoading } from "react-redux-loading-bar";
-import NetworkSource from "../../utils/network-source";
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import NetworkSource from '../../utils/network-source';
 
 const ActionType = {
-  RECEIVE_THREADS: "RECEIVE_THREADS",
-  ADD_THREAD: "ADD_THREAD",
+  RECEIVE_THREADS: 'RECEIVE_THREADS',
+  ADD_THREAD: 'ADD_THREAD',
 };
 
 function receiveThreadsActionCreator(threads) {
@@ -24,7 +24,7 @@ function addThreadActionCreator(thread) {
   };
 }
 
-function asyncAddThread({ title, body, category = "" }) {
+function asyncAddThread({ title, body, category = '' }) {
   return async (dispatch) => {
     dispatch(showLoading());
 
@@ -45,7 +45,7 @@ function asyncAddThread({ title, body, category = "" }) {
 }
 
 function showError(error) {
-  alert(error.message || "Something went wrong. Please try again.");
+  alert(error.message || 'Something went wrong. Please try again.');
 }
 
 export {

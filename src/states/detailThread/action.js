@@ -1,10 +1,10 @@
-import { hideLoading, showLoading } from "react-redux-loading-bar";
-import NetworkSource from "../../utils/network-source";
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import NetworkSource from '../../utils/network-source';
 
 const ActionType = {
-  RECEIVE_DETAIL_THREAD: "RECEIVE_DETAIL_THREAD",
-  CLEAR_DETAIL_THREAD: "CLEAR_DETAIL_THREAD",
-  ADD_COMMENT: "ADD_COMMENT",
+  RECEIVE_DETAIL_THREAD: 'RECEIVE_DETAIL_THREAD',
+  CLEAR_DETAIL_THREAD: 'CLEAR_DETAIL_THREAD',
+  ADD_COMMENT: 'ADD_COMMENT',
 };
 
 function receiveDetailThreadActionCreator(detailThread) {

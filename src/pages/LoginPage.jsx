@@ -1,9 +1,8 @@
-import React from "react";
-import { FaCloud } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import LoginInput from "../components/auth/LoginInput";
-import { asyncSetAuthUser } from "../states/authUser/action";
+import { FaCloud } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import LoginInput from '../components/auth/LoginInput';
+import { asyncSetAuthUser } from '../states/authUser/action';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

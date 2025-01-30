@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import useInput from "../../hooks/useInput";
+import PropTypes from 'prop-types';
+import useInput from '../../hooks/useInput';
 
 const LoginInput = ({ login }) => {
-  const [email, onImageChange] = useInput("");
-  const [password, onPasswordChange] = useInput("");
+  const [email, onImageChange] = useInput('');
+  const [password, onPasswordChange] = useInput('');
 
   return (
     <form className="auth-input">

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { asyncPopulateUsersAndThreads } from "../states/shared/action";
-import { asyncAddThread } from "../states/threads/action";
-import ThreadInput from "../components/home/ThreadInput";
-import ThreadList from "../components/home/ThreadList";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { asyncPopulateUsersAndThreads } from '../states/shared/action';
+import { asyncAddThread } from '../states/threads/action';
+import ThreadInput from '../components/home/ThreadInput';
+import ThreadList from '../components/home/ThreadList';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ function HomePage() {
   const threadList = threads.map((thread) => ({
     ...thread,
     user: users.find((user) => user.id === thread.ownerId) || {
-      name: "Unknown",
-      avatar: "/user.png",
+      name: 'Unknown',
+      avatar: '/user.png',
     },
     authUser: authUser ? authUser.id : null,
   }));

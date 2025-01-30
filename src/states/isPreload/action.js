@@ -1,9 +1,9 @@
-import NetworkSource from "../../utils/network-source";
-import { setAuthUserActionCreator } from "../authUser/action";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
+import NetworkSource from '../../utils/network-source';
+import { setAuthUserActionCreator } from '../authUser/action';
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 
 const ActionType = {
-  SET_IS_PRELOAD: "SET_IS_PRELOAD",
+  SET_IS_PRELOAD: 'SET_IS_PRELOAD',
 };
 
 function setIsPreloadActionCreator(isPreload) {
@@ -23,12 +23,17 @@ function asyncPreloadProcess() {
       const authUser = await NetworkSource.getOwnProfile();
       dispatch(setAuthUserActionCreator(authUser));
     } catch (error) {
+      showError(error);
       dispatch(setAuthUserActionCreator(null));
     } finally {
       dispatch(setIsPreloadActionCreator(false));
       dispatch(hideLoading());
     }
   };
+}
+
+function showError(error) {
+  alert(error.message || 'Something went wrong. Please try again.');
 }
 
 export { ActionType, setIsPreloadActionCreator, asyncPreloadProcess };

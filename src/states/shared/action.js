@@ -1,7 +1,7 @@
-import NetworkSource from "../../utils/network-source";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
-import { receiveUsersActionCreator } from "../users/action";
-import { receiveThreadsActionCreator } from "../threads/action";
+import NetworkSource from '../../utils/network-source';
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import { receiveUsersActionCreator } from '../users/action';
+import { receiveThreadsActionCreator } from '../threads/action';
 
 function asyncPopulateUsersAndThreads() {
   return async (dispatch) => {

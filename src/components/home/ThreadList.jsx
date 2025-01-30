@@ -1,5 +1,5 @@
-import React from "react";
-import ThreadItem from "./ThreadItem";
+import PropTypes from 'prop-types';
+import ThreadItem from './ThreadItem';
 
 const ThreadList = ({ threads }) => {
   return (
@@ -11,6 +11,22 @@ const ThreadList = ({ threads }) => {
       )}
     </div>
   );
+};
+
+ThreadList.propTypes = {
+  threads: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      category: PropTypes.string,
+      createdAt: PropTypes.string.isRequired,
+      ownerId: PropTypes.string.isRequired,
+      upVotesBy: PropTypes.array.isRequired,
+      downVotesBy: PropTypes.array.isRequired,
+      totalComments: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ThreadList;
