@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import { FaSignOutAlt } from "react-icons/fa";
 
 const Navigation = ({ authUser, signOut }) => {
-  const { id, photo, name } = authUser;
+  const { id, avatar, name } = authUser;
 
   return (
     <header className="navigation">
       <div className="navigation__profile">
-        <img className="navigation__photo" src={photo} alt={id} title={name} />
+        <img
+          className="navigation__photo"
+          src={avatar || "/user.png"}
+          alt={id}
+          title={name}
+        />
         <span className="navigation__name">{name}</span>
       </div>
       <nav className="navigation__menu">

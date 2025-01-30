@@ -24,10 +24,6 @@ function unsetAuthUserActionCreator() {
   };
 }
 
-function showError(error) {
-  alert(error.message || "Something went wrong. Please try again.");
-}
-
 function asyncSetAuthUser({ email, password }) {
   return async (dispatch) => {
     dispatch(showLoading());
@@ -60,6 +56,10 @@ function asyncUnsetAuthUser() {
       dispatch(hideLoading());
     }
   };
+}
+
+function showError(error) {
+  alert(error.message || "Something went wrong. Please try again.");
 }
 
 export {

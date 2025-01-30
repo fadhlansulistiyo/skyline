@@ -44,15 +44,17 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <>
       <Loading />
-      {authUser && (
-        <header>
-          <Navigation authUser={authUser} signOut={handleSignOut} />
-        </header>
-      )}
-      <main>{renderRoutes()}</main>
-    </div>
+      <div className="app-container">
+        {authUser && (
+          <header>
+            <Navigation authUser={authUser} signOut={handleSignOut} />
+          </header>
+        )}
+        <main>{renderRoutes()}</main>
+      </div>
+    </>
   );
 }
 

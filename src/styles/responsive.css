@@ -6,4 +6,12 @@
   .auth-page__main h2 {
     font-size: 20px;
   }
+
+  .homepage {
+    padding: 15px;
+  }
+
+  .homepage-title {
+    font-size: 20px;
+  }
 }

@@ -69,6 +69,7 @@ const NetworkSource = {
 
   async getAllThreads() {
     const { data } = await axiosInstance.get("/threads");
+    console.log(data.data.threads);
     return data.data.threads;
   },
 
