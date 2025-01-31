@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix ./src",
     "preview": "vite preview",
     "test": "vitest --no-watch",
-    "test-watch": "vitest"
+    "test-watch": "vitest",
+    "e2e": "cypress run",
+    "cypress": "npx cypress open"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
@@ -33,7 +35,9 @@
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
+    "cypress": "^14.0.1",
     "eslint": "^9.17.0",
+    "eslint-plugin-cypress": "^4.1.0",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",

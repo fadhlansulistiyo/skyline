@@ -3,6 +3,7 @@ import globals from "globals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import pluginCypress from "eslint-plugin-cypress/flat";
 import daStyle from "eslint-config-dicodingacademy";
 
 export default [
@@ -36,5 +37,6 @@ export default [
       ],
     },
   },
+  pluginCypress.configs.recommended,
   daStyle,
 ];
