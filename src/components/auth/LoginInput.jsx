@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
-import { useForm } from "react-hook-form";
+import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
 
 const LoginInput = ({ login }) => {
   const {
@@ -17,14 +17,14 @@ const LoginInput = ({ login }) => {
     <form className="auth-input" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        {...register("email", { required: "Email is required" })}
+        {...register('email', { required: 'Email is required' })}
         placeholder="Email"
       />
       {errors.email && <p className="error-message">{errors.email.message}</p>}
 
       <input
         type="password"
-        {...register("password", { required: "Password is required" })}
+        {...register('password', { required: 'Password is required' })}
         placeholder="Password"
       />
       {errors.password && (

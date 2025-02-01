@@ -8,69 +8,68 @@
  *   - should call register function when register button is clicked
  */
 
-import React from "react";
-import { describe, it, expect, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import RegisterInput from "./RegisterInput";
+import { describe, it, expect, vi } from 'vitest';
+import { cleanup, render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import RegisterInput from './RegisterInput';
 
-describe("RegisterInput component", () => {
+describe('RegisterInput component', () => {
   afterEach(() => {
     cleanup();
   });
 
-  it("should handle name typing correctly", async () => {
+  it('should handle name typing correctly', async () => {
     // Arrange
     render(<RegisterInput register={() => {}} />);
-    const nameInput = await screen.getByPlaceholderText("Name");
+    const nameInput = await screen.getByPlaceholderText('Name');
 
     // Action
-    await userEvent.type(nameInput, "nametest");
+    await userEvent.type(nameInput, 'nametest');
 
     // Assert
-    expect(nameInput).toHaveValue("nametest");
+    expect(nameInput).toHaveValue('nametest');
   });
 
-  it("should handle email typing correctly", async () => {
+  it('should handle email typing correctly', async () => {
     // Arrange
     render(<RegisterInput register={() => {}} />);
-    const emailInput = await screen.getByPlaceholderText("Email");
+    const emailInput = await screen.getByPlaceholderText('Email');
 
     // Action
-    await userEvent.type(emailInput, "emailtest");
+    await userEvent.type(emailInput, 'emailtest');
 
     // Assert
-    expect(emailInput).toHaveValue("emailtest");
+    expect(emailInput).toHaveValue('emailtest');
   });
 
-  it("should handle password typing correctly", async () => {
+  it('should handle password typing correctly', async () => {
     // Arrange
     render(<RegisterInput register={() => {}} />);
-    const passwordInput = await screen.getByPlaceholderText("Password");
+    const passwordInput = await screen.getByPlaceholderText('Password');
 
     // Action
-    await userEvent.type(passwordInput, "passwordtest");
+    await userEvent.type(passwordInput, 'passwordtest');
 
     // Assert
-    expect(passwordInput).toHaveValue("passwordtest");
+    expect(passwordInput).toHaveValue('passwordtest');
   });
 
-  it("should call register function when register button is clicked", async () => {
+  it('should call register function when register button is clicked', async () => {
     // Arrange
     const mockRegister = vi.fn();
     render(<RegisterInput register={mockRegister} />);
 
-    const nameInput = await screen.getByPlaceholderText("Name");
-    await userEvent.type(nameInput, "nametest");
+    const nameInput = await screen.getByPlaceholderText('Name');
+    await userEvent.type(nameInput, 'nametest');
 
-    const emailInput = await screen.getByPlaceholderText("Email");
-    await userEvent.type(emailInput, "emailtest");
+    const emailInput = await screen.getByPlaceholderText('Email');
+    await userEvent.type(emailInput, 'emailtest');
 
-    const passwordInput = await screen.getByPlaceholderText("Password");
-    await userEvent.type(passwordInput, "passwordtest");
+    const passwordInput = await screen.getByPlaceholderText('Password');
+    await userEvent.type(passwordInput, 'passwordtest');
 
-    const registerButton = await screen.getByRole("button", {
-      name: "Register",
+    const registerButton = await screen.getByRole('button', {
+      name: 'Register',
     });
 
     // Action
@@ -78,9 +77,9 @@ describe("RegisterInput component", () => {
 
     // Assert
     expect(mockRegister).toBeCalledWith({
-      name: "nametest",
-      email: "emailtest",
-      password: "passwordtest",
+      name: 'nametest',
+      email: 'emailtest',
+      password: 'passwordtest',
     });
   });
 });

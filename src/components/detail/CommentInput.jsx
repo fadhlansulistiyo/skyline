@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
-import PropTypes from "prop-types";
+import { useForm } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 const CommentInput = ({ onAddComment }) => {
   const {
@@ -20,7 +20,7 @@ const CommentInput = ({ onAddComment }) => {
     <form className="comment-input" onSubmit={handleSubmit(onSubmit)}>
       <textarea
         className="comment-input__field"
-        {...register("comment", { required: "Comment cannot be empty" })}
+        {...register('comment', { required: 'Comment cannot be empty' })}
         placeholder="Write a comment..."
         rows="3"
       />

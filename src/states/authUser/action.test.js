@@ -9,29 +9,29 @@
  *   - should dispatch the correct actions when logout is performed
  */
 
-import { describe, beforeEach, afterEach, it, vi, expect } from "vitest";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
-import NetworkSource from "../../utils/network-source";
+import { describe, beforeEach, afterEach, it, vi, expect } from 'vitest';
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
+import NetworkSource from '../../utils/network-source';
 import {
   asyncSetAuthUser,
   asyncUnsetAuthUser,
   setAuthUserActionCreator,
   unsetAuthUserActionCreator,
-} from "./action";
+} from './action';
 
 const fakeAuthUser = {
-  id: "Fadhlan",
-  name: "Fadhlan Sulistiyo",
+  id: 'Fadhlan',
+  name: 'Fadhlan Sulistiyo',
   avatar:
-    "https://ui-avatars.com/api/?name=Fadhlan+Sulistiyo&background=random",
+    'https://ui-avatars.com/api/?name=Fadhlan+Sulistiyo&background=random',
 };
 
 const fakeToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRpbWFzMiIsIm5hbWUiOiJEaW1hcyBTYXB1dHJhIiwiaXNzIjoiYXBwIiwiaWF0IjoxNjYzODQwNzY0fQ._HrzpinFYX_m9WfvM-lGCdVrnhnaGHhzt1e6eATE1Iw";
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRpbWFzMiIsIm5hbWUiOiJEaW1hcyBTYXB1dHJhIiwiaXNzIjoiYXBwIiwiaWF0IjoxNjYzODQwNzY0fQ._HrzpinFYX_m9WfvM-lGCdVrnhnaGHhzt1e6eATE1Iw';
 
-const fakeErrorResponse = new Error("Ups, something went wrong");
+const fakeErrorResponse = new Error('Ups, something went wrong');
 
-describe("asyncSetAuthUser thunk", () => {
+describe('asyncSetAuthUser thunk', () => {
   beforeEach(() => {
     NetworkSource._login = NetworkSource.login;
     NetworkSource._getOwnProfile = NetworkSource.getOwnProfile;
@@ -45,14 +45,14 @@ describe("asyncSetAuthUser thunk", () => {
     delete NetworkSource._getOwnProfile;
   });
 
-  it("should dispatch action correctly when login success", async () => {
+  it('should dispatch action correctly when login success', async () => {
     // arrange
     NetworkSource.login = () => Promise.resolve(fakeToken);
     NetworkSource.getOwnProfile = () => Promise.resolve(fakeAuthUser);
     const dispatch = vi.fn();
 
     // action
-    await asyncSetAuthUser({ email: "test@example.com", password: "password" })(
+    await asyncSetAuthUser({ email: 'test@example.com', password: 'password' })(
       dispatch
     );
 
@@ -64,14 +64,14 @@ describe("asyncSetAuthUser thunk", () => {
     expect(dispatch).toHaveBeenCalledWith(hideLoading());
   });
 
-  it("should dispatch action and call alert correctly when login failed", async () => {
+  it('should dispatch action and call alert correctly when login failed', async () => {
     // arrange
     NetworkSource.login = () => Promise.reject(fakeErrorResponse);
     const dispatch = vi.fn();
     window.alert = vi.fn();
 
     // action
-    await asyncSetAuthUser({ email: "test@example.com", password: "password" })(
+    await asyncSetAuthUser({ email: 'test@example.com', password: 'password' })(
       dispatch
     );
 
@@ -82,8 +82,8 @@ describe("asyncSetAuthUser thunk", () => {
   });
 });
 
-describe("asyncUnsetAuthUser thunk", () => {
-  it("should dispatch action correctly when logout", async () => {
+describe('asyncUnsetAuthUser thunk', () => {
+  it('should dispatch action correctly when logout', async () => {
     // arrange
     const dispatch = vi.fn();
 
