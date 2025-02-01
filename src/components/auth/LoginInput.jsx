@@ -1,27 +1,36 @@
-import PropTypes from 'prop-types';
-import useInput from '../../hooks/useInput';
+import PropTypes from "prop-types";
+import { useForm } from "react-hook-form";
 
 const LoginInput = ({ login }) => {
-  const [email, onImageChange] = useInput('');
-  const [password, onPasswordChange] = useInput('');
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    login(data);
+  };
 
   return (
-    <form className="auth-input">
+    <form className="auth-input" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        value={email}
-        onChange={onImageChange}
+        {...register("email", { required: "Email is required" })}
         placeholder="Email"
       />
+      {errors.email && <p className="error-message">{errors.email.message}</p>}
+
       <input
         type="password"
-        value={password}
-        onChange={onPasswordChange}
+        {...register("password", { required: "Password is required" })}
         placeholder="Password"
       />
-      <button type="button" onClick={() => login({ email, password })}>
-        Login
-      </button>
+      {errors.password && (
+        <p className="error-message">{errors.password.message}</p>
+      )}
+
+      <button type="submit">Login</button>
     </form>
   );
 };

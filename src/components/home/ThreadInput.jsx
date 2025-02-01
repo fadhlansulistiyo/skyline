@@ -1,42 +1,43 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { useForm } from "react-hook-form";
 
 const ThreadInput = ({ addThread }) => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-  const [category, setCategory] = useState('');
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!title.trim() || !body.trim()) return;
-    addThread({ title, body, category });
-    setTitle('');
-    setBody('');
-    setCategory('');
+  const onSubmit = (data) => {
+    addThread(data);
+    reset();
   };
 
   return (
-    <form className="thread-input" onSubmit={handleSubmit}>
+    <form className="thread-input" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
         className="thread-input__title"
         placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        {...register("title", { required: "Title is required" })}
       />
+      {errors.title && <p className="error-message">{errors.title.message}</p>}
+
       <textarea
         className="thread-input__body"
         placeholder="What’s on your mind?"
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
+        {...register("body", { required: "Body is required" })}
       />
+      {errors.body && <p className="error-message">{errors.body.message}</p>}
+
       <input
         type="text"
         className="thread-input__category"
         placeholder="Category (optional)"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
+        {...register("category")}
       />
+
       <button type="submit" className="thread-input__submit">
         Post
       </button>

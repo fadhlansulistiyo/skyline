@@ -1,26 +1,32 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 const CommentInput = ({ onAddComment }) => {
-  const [comment, setComment] = useState('');
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = ({ comment }) => {
     if (comment.trim()) {
       onAddComment(comment);
-      setComment('');
+      reset();
     }
   };
 
   return (
-    <form className="comment-input" onSubmit={handleSubmit}>
+    <form className="comment-input" onSubmit={handleSubmit(onSubmit)}>
       <textarea
         className="comment-input__field"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        {...register("comment", { required: "Comment cannot be empty" })}
         placeholder="Write a comment..."
         rows="3"
       />
+      {errors.comment && (
+        <p className="error-message">{errors.comment.message}</p>
+      )}
       <button type="submit" className="comment-input__button">
         Post Comment
       </button>

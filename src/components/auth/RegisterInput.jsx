@@ -1,34 +1,43 @@
-import PropTypes from 'prop-types';
-import useInput from '../../hooks/useInput';
+import PropTypes from "prop-types";
+import { useForm } from "react-hook-form";
 
-const RegisterInput = ({ register }) => {
-  const [name, onNameChange] = useInput('');
-  const [email, onEmailChange] = useInput('');
-  const [password, onPasswordChange] = useInput('');
+const RegisterInput = ({ register: registerUser }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    registerUser(data);
+  };
 
   return (
-    <form className="auth-input">
+    <form className="auth-input" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
-        value={name}
-        onChange={onNameChange}
+        {...register("name", { required: "Name is required" })}
         placeholder="Name"
       />
+      {errors.name && <p className="error-message">{errors.name.message}</p>}
+
       <input
         type="text"
-        value={email}
-        onChange={onEmailChange}
+        {...register("email", { required: "Email is required" })}
         placeholder="Email"
       />
+      {errors.email && <p className="error-message">{errors.email.message}</p>}
+
       <input
         type="password"
-        value={password}
-        onChange={onPasswordChange}
+        {...register("password", { required: "Password is required" })}
         placeholder="Password"
       />
-      <button type="button" onClick={() => register({ name, email, password })}>
-        Register
-      </button>
+      {errors.password && (
+        <p className="error-message">{errors.password.message}</p>
+      )}
+
+      <button type="submit">Register</button>
     </form>
   );
 };
