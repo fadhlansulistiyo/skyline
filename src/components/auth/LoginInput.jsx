@@ -4,15 +4,17 @@ import { useForm } from "react-hook-form";
 const LoginInput = ({ login }) => {
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm();
 
+  // submit login data
   const onSubmit = (data) => {
     login(data);
   };
 
   return (
-    <form className="auth-input">
+    <form className="auth-input" onSubmit={handleSubmit(onSubmit)}>
       <input
         type="text"
         {...register("email", { required: "Email is required" })}
