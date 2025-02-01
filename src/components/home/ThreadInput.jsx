@@ -9,7 +9,7 @@ const ThreadInput = ({ addThread }) => {
     formState: { errors },
   } = useForm();
 
-  // submit thread input & test push
+  // submit thread input & test push & check pull request.
   const onSubmit = (data) => {
     addThread(data);
     reset();
