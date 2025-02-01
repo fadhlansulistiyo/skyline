@@ -8,6 +8,7 @@ const LoginInput = ({ login }) => {
     formState: { errors },
   } = useForm();
 
+  // submit login data
   const onSubmit = (data) => {
     login(data);
   };
