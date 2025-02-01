@@ -12,7 +12,8 @@
     "test": "vitest --no-watch",
     "test-watch": "vitest",
     "e2e": "cypress run",
-    "cypress": "npx cypress open"
+    "cypress": "npx cypress open",
+    "ci:test": "vitest --no-watch && start-server-and-test dev http-get://0.0.0.0:5173 e2e"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
@@ -45,6 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
     "jsdom": "^26.0.0",
+    "start-server-and-test": "^2.0.10",
     "vite": "^6.0.5",
     "vitest": "^3.0.4"
   }
