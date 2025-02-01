@@ -9,6 +9,7 @@ const ThreadInput = ({ addThread }) => {
     formState: { errors },
   } = useForm();
 
+  // submit thread input
   const onSubmit = (data) => {
     addThread(data);
     reset();
